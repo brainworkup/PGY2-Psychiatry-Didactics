@@ -199,35 +199,45 @@ knitr::opts_chunk$set(dev.args = list(bg = "transparent"))
 
 # Reason for Referral
 
+
 **_From YOU to ME_**
 
+::: {.incremental}
 ## 1. Diagnostic Clarification in Complex Cases
-<!-- ::: {.incremental} -->
 - Distinguish primary psychiatric disorders from neurocognitive conditions (e.g., ADHD vs. anxiety, depression vs. early neurocognitive disorder)
 - Clarify etiology when presentation is atypical or symptoms overlap across diagnostic categories
 - Inform treatment selection when standard pharmacotherapy has failed
-<!-- ::: -->
+:::
 
+::: {.incremental}
 ## 2. Objective Characterization of Cognitive Functioning
 
 - Identify specific cognitive strengths and weaknesses affecting daily functioning
 - Quantify deficits in attention, memory, executive function, or processing speed that may maintain or exacerbate psychopathology
 - Establish baseline functioning for tracking treatment response or disease progression
+:::
 
+::: {.incremental}
 ## 3. Treatment Planning and Accommodation Recommendations
 
 - Generate data-driven recommendations for academic/workplace accommodations (e.g., MCAT, LSAT, job performance)
 - Guide cognitive rehabilitation, compensatory strategy development, and psychoeducation
 - Inform capacity evaluations and functional independence assessments
+:::
 
-# Standard Neuropsychological Evaluation
+# What is Neuropsychological Assessment?
 
 ## Domains Assessed
 ```{=html}
 <iframe src="img/neuropsych-domains.html" width="1500" height="850" style="border:none; display:block; margin:0 auto;" sandbox="allow-scripts"></iframe>
 ```
 
-## Neurocognitive Exam
+## Standard Neuropsychological Evaluation
+
+:::: {.columns}
+
+::: {.column width="50%"}
+### Neurocognitive Exam
 
 - General Cognitive Ability (e.g., "IQ")
 - Academic Skills
@@ -241,7 +251,9 @@ knitr::opts_chunk$set(dev.args = list(bg = "transparent"))
 - Social Cognition
 - Adaptive Functioning
 - Daily Living Skills
+:::
 
+::: {.column width="50%"}
 ### Commonly Used Tests
 - Wechsler Adult Intelligence Scale, 4th ed (WAIS-4)
 - Wechsler Individual Achievement Test, 4th ed (WIAT-4)
@@ -253,8 +265,12 @@ knitr::opts_chunk$set(dev.args = list(bg = "transparent"))
 - RBANS
 - NEPSY-II
 - Delis-Kaplan Executive Function System (D-KEFS)
+:::
 
-## Behavioral/Emotional/Personality
+::::
+
+
+## Behavioral/Emotional/Social/Personality
 
 ### ADHD
 - Conners' Adult ADHD Diagnostic Interview for DSM-IV (CAADID)
@@ -266,27 +282,43 @@ knitr::opts_chunk$set(dev.args = list(bg = "transparent"))
 - Personality Assessment Inventory (PAI)
 - Minnesota Multiphasic Personality Inventory (MMPI)
 
+### Autism/Aspergers
+
+- Child Autism Rating Scale, 2nd ed (CARS-2)
+- Autism Diagnostic Observation Schedule, 2nd ed (ADOS-2)
+
+
 ## Effort/Validity Testing
+Crucial for interpreting test results and ensuring accurate clinical conclusions
 
+::: {.incremental}
 ### Symptom Validity Tests (SVTs)
-- Structured Inventory of Malingered Symptomatology (SIMS)
-- Miller Forensic Assessment of Symptoms Test (M-FAST)
-- Test of Memory Malingering (TOMM)
+- Positive Impression ("everything is perfect")
+- Negative Impression ("everything is wrong")
+- Atypical/Infrequent Responses
+- Inconsistent Responses
+:::
 
+::: {.incremental}
 ### Performance Validity Tests (PVTs)
 - ACS Word Choice Test
 - Dot Counting Test (DCT)
+- Test of Memory Malingering (TOMM)
+:::
 
-### Embedded vs. Standalone Validity Tests
+::: {.incremental}
+### Embedded vs Standalone Validity Tests
 - Embedded: built into the neuropsychological test (e.g., WAIS-4 Digit Span)
 - Standalone: separate test designed to assess effort/validity (e.g., DCT)
+- Both types are important for comprehensive validity assessment
+:::
 
+## Measurement and Objectivity
 
-# Measurement and Objectivity
-
-## How do we measure these domains?
+### How do we measure these domains?
 
 ![](img/stroop.svg)
+
 
 ## Distribution of Test Scores: _Population-level Interpretation_
 
@@ -295,20 +327,22 @@ knitr::include_graphics("img/plot_narrow.png", auto_pdf = TRUE)
 ```
 
 
-## Processing speed and **$$$**
+
+
+## Processing Speed and **$$$**
 
 ![](/img/coding_x_income.png)
 
 
-
-
-# Case Report - Drilldown Plots
+# Case Report 
 
 - **Patient:** 20-something yr-old female
 
 - **Referral:** ADHD and anxiety for MCAT accommodations
 
 - **Relevant History:** Multiple mild trauamatic brain injuries (TBIs)/concussions
+
+# Drilldown Plots
 
 ```{r, read-data2}
 library(readr)
