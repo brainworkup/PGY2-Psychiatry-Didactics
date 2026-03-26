@@ -1,0 +1,9 @@
+title: Reveal-header
+author: Shafayet Khan Shafee
+version: 1.2.8
+quarto-required: '>=1.2.0'
+source: shafayetshafee/reveal-header@v1.2.8
+source-type: registry
+contributes:
+  filters:
+    - reveal-header.lua

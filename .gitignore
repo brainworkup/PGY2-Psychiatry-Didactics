@@ -18,9 +18,9 @@ blackboard.qmd
 index_blackboard.qmd
 _index_og.qmd
 index_self_contained.html
-_extensions/
+# _extensions/
 _freeze/
-figs/
+# figs/
 
 **/*.quarto_ipynb
 assets/

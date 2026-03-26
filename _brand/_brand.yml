@@ -6,10 +6,10 @@ meta:
 logo:
   images:
     light:
-      path: _brand/logos/logo.png
+      path: /logos/logo.png
       alt: "Joey W. Trampush logo"
     dark:
-      path: _brand/logos/logo_black.jpg
+      path: /logos/logo_black.jpg
       alt: "Joey W. Trampush logo"
   small:
     light: light
