@@ -202,10 +202,11 @@ knitr::opts_chunk$set(dev.args = list(bg = "transparent"))
 **_From YOU to ME_**
 
 ## 1. Diagnostic Clarification in Complex Cases
-
+::: {.incremental}
 - Distinguish primary psychiatric disorders from neurocognitive conditions (e.g., ADHD vs. anxiety, depression vs. early neurocognitive disorder)
 - Clarify etiology when presentation is atypical or symptoms overlap across diagnostic categories
 - Inform treatment selection when standard pharmacotherapy has failed
+:::
 
 ## 2. Objective Characterization of Cognitive Functioning
 
