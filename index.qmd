@@ -236,7 +236,7 @@ knitr::opts_chunk$set(dev.args = list(bg = "transparent"))
 
 :::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width="60%"}
 ### Neurocognitive Exam
 
 - General Cognitive Ability (e.g., "IQ")
@@ -253,7 +253,7 @@ knitr::opts_chunk$set(dev.args = list(bg = "transparent"))
 - Daily Living Skills
 :::
 
-::: {.column width="50%"}
+::: {.column width="40%"}
 ### Commonly Used Tests
 - Wechsler Adult Intelligence Scale, 4th ed (WAIS-4)
 - Wechsler Individual Achievement Test, 4th ed (WIAT-4)
