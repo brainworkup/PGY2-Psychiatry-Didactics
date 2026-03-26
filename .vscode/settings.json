@@ -41,5 +41,6 @@
     "quarto": {
       "parser": "markdown"
     }
-  }
+  },
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true
 }

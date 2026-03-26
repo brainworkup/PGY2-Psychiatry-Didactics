@@ -207,31 +207,50 @@ psychiatric diagnosis and treatment planning
 
 ## Reason for Referral
 
-**_From YOU to me/us_**
+**_From YOU to ME_**
 
-- Psychodiagnostic clarification ( e.g., poor response to pharmacotherapy)
+### 1. Diagnostic Clarification in Complex Cases
 
+- Distinguish primary psychiatric disorders from neurocognitive conditions (e.g., ADHD vs. anxiety, depression vs. early neurocognitive disorder)
+- Clarify etiology when presentation is atypical or symptoms overlap across diagnostic categories
+- Inform treatment selection when standard pharmacotherapy has failed
 
-- To clarify the presence of cognitive
-  deficits that may be contributing to a patient's psychopathology
+### 2. Objective Characterization of Cognitive Functioning
 
-- Role of neuropsychological assessment in psychiatric differential diagnosis is
-challenging ...
+- Identify specific cognitive strengths and weaknesses affecting daily functioning
+- Quantify deficits in attention, memory, executive function, or processing speed that may maintain or exacerbate psychopathology
+- Establish baseline functioning for tracking treatment response or disease progression
+
+### 3. Treatment Planning and Accommodation Recommendations
+
+- Generate data-driven recommendations for academic/workplace accommodations (e.g., MCAT, LSAT, job performance)
+- Guide cognitive rehabilitation, compensatory strategy development, and psychoeducation
+- Inform capacity evaluations and functional independence assessments
 
 # Standard Neuropsychological Evaluation
 
 ## Domains Assessed
+```{=html}
+<iframe src="img/neuropsych-domains.html" width="1500" height="850" style="border:none; display:block; margin:0 auto;" sandbox="allow-scripts"></iframe>
+```
 
-![](img/domains.png)
+
+<!-- ## Domains Assessed
+ -->
+<!-- ![](img/domains.png) -->
 
 
 ### Neurocognitive Exam
 
-- General cognitive ability (e.g., "IQ")
-- Verbal/language abilities
+- General Cognitive Ability (e.g., "IQ")
+- Academic Skills
+- Verbal/Language
 - Visual Perception/Construction
 - Memory
 - Attention/Executive
+- Social Cognition
+- Adaptive Functioning
+- Daily Living Skills
 
 ### Commonly Used Tests
 - Wechsler Adult Intelligence Scale, 4th ed (WAIS-4)

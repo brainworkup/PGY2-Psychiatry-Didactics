@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neuropsychological Evaluation Domains</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600&family=Playfair+Display:wght@400;500;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: transparent;
+    font-family: 'DM Sans', sans-serif;
+    color: #e8e6df;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+
+  .container {
+    position: relative;
+    width: 1500px;
+    height: 850px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  /* Left: diagram area */
+  .diagram-area {
+    position: relative;
+    width: 800px;
+    height: 850px;
+    flex-shrink: 0;
+  }
+
+  /* Title */
+  .title {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 800px;
+    text-align: center;
+    z-index: 1;
+  }
+  .title h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 28px;
+    color: #e8e6df;
+    letter-spacing: 0.01em;
+  }
+  .title p {
+    font-size: 14px;
+    color: rgba(232,230,223,0.45);
+    margin-top: 4px;
+    letter-spacing: 0.04em;
+  }
+
+  /* Connecting lines SVG */
+  .connections {
+    position: absolute;
+    top: 0; left: 0;
+    width: 800px; height: 850px;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .connections line {
+    stroke: rgba(255,255,255,0.06);
+    stroke-width: 1;
+    transition: stroke 0.5s, stroke-width 0.5s;
+  }
+  .connections line.active {
+    stroke: rgba(255,255,255,0.18);
+    stroke-width: 1.5;
+  }
+
+  /* Domain circles */
+  .domain {
+    position: absolute;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s, filter 0.4s;
+    z-index: 2;
+    text-align: center;
+    user-select: none;
+    border: 2px solid transparent;
+    width: 155px; height: 155px;
+  }
+  .domain:hover {
+    transform: scale(1.08);
+    z-index: 3;
+  }
+  .domain.active {
+    transform: scale(1.12);
+    z-index: 4;
+  }
+  .domain.dimmed {
+    filter: brightness(0.45) saturate(0.4);
+    transform: scale(0.95);
+  }
+  .domain .label {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 0.02em;
+    line-height: 1.3;
+    color: #fff;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  }
+
+  /* Circle positions — hexagon centered in 800x850, cx=400 cy=430 */
+  .domain[data-domain="cognition"] {
+    background: radial-gradient(circle at 35% 35%, #5ba3d9, #2a6db0);
+    border-color: rgba(91,163,217,0.4);
+    box-shadow: 0 4px 30px rgba(42,109,176,0.3), inset 0 -4px 12px rgba(0,0,0,0.15);
+    top: 80px; left: 322px;
+  }
+  .domain[data-domain="cognition"].active {
+    box-shadow: 0 0 50px rgba(91,163,217,0.5), 0 4px 30px rgba(42,109,176,0.4);
+  }
+
+  .domain[data-domain="behavioral"] {
+    background: radial-gradient(circle at 35% 35%, #e08a50, #c45d24);
+    border-color: rgba(224,138,80,0.4);
+    box-shadow: 0 4px 30px rgba(196,93,36,0.3), inset 0 -4px 12px rgba(0,0,0,0.15);
+    top: 235px; left: 568px;
+  }
+  .domain[data-domain="behavioral"].active {
+    box-shadow: 0 0 50px rgba(224,138,80,0.5), 0 4px 30px rgba(196,93,36,0.4);
+  }
+
+  .domain[data-domain="emotional"] {
+    background: radial-gradient(circle at 35% 35%, #9b7cc7, #6b4d9e);
+    border-color: rgba(155,124,199,0.4);
+    box-shadow: 0 4px 30px rgba(107,77,158,0.3), inset 0 -4px 12px rgba(0,0,0,0.15);
+    top: 475px; left: 568px;
+  }
+  .domain[data-domain="emotional"].active {
+    box-shadow: 0 0 50px rgba(155,124,199,0.5), 0 4px 30px rgba(107,77,158,0.4);
+  }
+
+  .domain[data-domain="adaptive"] {
+    background: radial-gradient(circle at 35% 35%, #3db89a, #1a8a6e);
+    border-color: rgba(61,184,154,0.4);
+    box-shadow: 0 4px 30px rgba(26,138,110,0.3), inset 0 -4px 12px rgba(0,0,0,0.15);
+    top: 630px; left: 322px;
+  }
+  .domain[data-domain="adaptive"].active {
+    box-shadow: 0 0 50px rgba(61,184,154,0.5), 0 4px 30px rgba(26,138,110,0.4);
+  }
+
+  .domain[data-domain="social"] {
+    background: radial-gradient(circle at 35% 35%, #d47a94, #b04567);
+    border-color: rgba(212,122,148,0.4);
+    box-shadow: 0 4px 30px rgba(176,69,103,0.3), inset 0 -4px 12px rgba(0,0,0,0.15);
+    top: 475px; left: 78px;
+  }
+  .domain[data-domain="social"].active {
+    box-shadow: 0 0 50px rgba(212,122,148,0.5), 0 4px 30px rgba(176,69,103,0.4);
+  }
+
+  .domain[data-domain="academic"] {
+    background: radial-gradient(circle at 35% 35%, #e8b44a, #c48a1e);
+    border-color: rgba(232,180,74,0.4);
+    box-shadow: 0 4px 30px rgba(196,138,30,0.3), inset 0 -4px 12px rgba(0,0,0,0.15);
+    top: 235px; left: 78px;
+  }
+  .domain[data-domain="academic"].active {
+    box-shadow: 0 0 50px rgba(232,180,74,0.5), 0 4px 30px rgba(196,138,30,0.4);
+  }
+
+  /* Right: callout panel */
+  .right-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 40px 40px 20px;
+    min-height: 100%;
+  }
+
+  .callout {
+    width: 100%;
+    max-width: 560px;
+    background: rgba(20,20,24,0.85);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 36px 40px;
+    opacity: 0;
+    transform: translateX(20px);
+    pointer-events: none;
+    transition: opacity 0.4s, transform 0.4s;
+  }
+  .callout.visible {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+  .callout-domain-indicator {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+  }
+  .callout-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 22px;
+    margin-bottom: 16px;
+    letter-spacing: 0.01em;
+  }
+  .callout-text {
+    font-size: 15.5px;
+    line-height: 1.7;
+    color: rgba(232,230,223,0.82);
+    font-weight: 300;
+  }
+  .callout-hint {
+    margin-top: 20px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 0.04em;
+  }
+
+  /* Instruction text */
+  .instruction {
+    max-width: 560px;
+    text-align: center;
+    font-size: 14px;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 0.04em;
+    transition: opacity 0.4s;
+    line-height: 1.6;
+  }
+  .instruction.hidden { opacity: 0; pointer-events: none; position: absolute; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- LEFT: Diagram -->
+  <div class="diagram-area">
+    <div class="title">
+      <h1>Areas of functioning</h1>
+      <p>Neuropsychological evaluation domains</p>
+    </div>
+
+    <svg class="connections" viewBox="0 0 800 850" preserveAspectRatio="xMidYMid meet">
+      <line x1="400" y1="158" x2="646" y2="313" data-from="cognition" data-to="behavioral"/>
+      <line x1="646" y1="313" x2="646" y2="553" data-from="behavioral" data-to="emotional"/>
+      <line x1="646" y1="553" x2="400" y2="708" data-from="emotional" data-to="adaptive"/>
+      <line x1="400" y1="708" x2="156" y2="553" data-from="adaptive" data-to="social"/>
+      <line x1="156" y1="553" x2="156" y2="313" data-from="social" data-to="academic"/>
+      <line x1="156" y1="313" x2="400" y2="158" data-from="academic" data-to="cognition"/>
+      <line x1="400" y1="158" x2="646" y2="553" data-from="cognition" data-to="emotional"/>
+      <line x1="646" y1="313" x2="156" y2="553" data-from="behavioral" data-to="social"/>
+      <line x1="646" y1="553" x2="156" y2="313" data-from="emotional" data-to="academic"/>
+      <line x1="400" y1="708" x2="400" y2="158" data-from="adaptive" data-to="cognition"/>
+      <line x1="156" y1="313" x2="646" y2="553" data-from="academic" data-to="emotional"/>
+      <line x1="156" y1="553" x2="646" y2="313" data-from="social" data-to="behavioral"/>
+    </svg>
+
+    <div class="domain" data-domain="cognition" onclick="selectDomain('cognition')">
+      <span class="label">Cognition</span>
+    </div>
+    <div class="domain" data-domain="behavioral" onclick="selectDomain('behavioral')">
+      <span class="label">Behavioral/<br>personality</span>
+    </div>
+    <div class="domain" data-domain="emotional" onclick="selectDomain('emotional')">
+      <span class="label">Emotional/<br>mood</span>
+    </div>
+    <div class="domain" data-domain="adaptive" onclick="selectDomain('adaptive')">
+      <span class="label">Adaptive</span>
+    </div>
+    <div class="domain" data-domain="social" onclick="selectDomain('social')">
+      <span class="label">Social</span>
+    </div>
+    <div class="domain" data-domain="academic" onclick="selectDomain('academic')">
+      <span class="label">Academic<br>achievement</span>
+    </div>
+  </div>
+
+  <!-- RIGHT: Callout panel -->
+  <div class="right-panel">
+    <div class="instruction" id="instruction">Select a domain to see<br>teaching points for residents</div>
+    <div class="callout" id="callout">
+      <div class="callout-title" id="callout-title">
+        <span class="callout-domain-indicator" id="callout-dot"></span>
+        <span id="callout-title-text"></span>
+      </div>
+      <div class="callout-text" id="callout-text"></div>
+      <div class="callout-hint">Click the circle again to deselect</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const domainData = {
+  cognition: {
+    title: "Cognition",
+    color: "#5ba3d9",
+    text: "Cognition isn't a single thing \u2014 it's a profile. The clinical value of neuropsych lies not in any one score but in the pattern across subdomains. A patient with strong verbal abilities but weak processing speed and executive functioning tells a different neurological story than one with globally depressed scores. Pattern analysis is what we do, and it's what makes a neuropsych report more informative than a screening measure like the MoCA or MMSE."
+  },
+  behavioral: {
+    title: "Behavioral / Personality",
+    color: "#e08a50",
+    text: "Behavioral and personality assessment captures enduring patterns of perceiving, relating to, and thinking about the environment and oneself. In neuropsych, this domain helps distinguish characterological traits from acquired behavioral changes \u2014 for example, differentiating premorbid personality features from frontal lobe disinhibition after TBI, or parsing ADHD-related impulsivity from a personality disorder presentation. The key teaching point: behavior has both neurological and characterological drivers, and neuropsych data helps pull them apart."
+  },
+  emotional: {
+    title: "Emotional / Mood",
+    color: "#9b7cc7",
+    text: "Emotional functioning directly modulates neurocognitive performance. A patient with significant anxiety may show depressed processing speed and working memory. Depression can mimic executive dysfunction or even early neurodegenerative processes. You can't interpret an IQ or memory score in a vacuum without understanding the patient's emotional state during and outside of testing. The bidirectional relationship is key: brain injuries cause emotional dysregulation, and emotional conditions affect cognitive test performance. Disentangling those contributions is a core neuropsychological skill."
+  },
+  adaptive: {
+    title: "Adaptive",
+    color: "#3db89a",
+    text: "Adaptive functioning measures a patient's real-world ability to meet the demands of daily living \u2014 communication, self-care, community use, self-direction, health, and safety. This is the domain where cognitive scores meet ecological validity: a patient may score in the average range on structured tests but still struggle to manage medications, navigate public transit, or maintain employment. For psychiatry residents, adaptive data is essential for capacity evaluations, disability determinations, and treatment planning that goes beyond symptom reduction."
+  },
+  social: {
+    title: "Social",
+    color: "#d47a94",
+    text: "Social cognition is subserved by a distributed neural network \u2014 the fusiform face area, superior temporal sulcus, medial prefrontal cortex, amygdala, and mirror neuron systems. Social deficits are often the presenting complaint in autism spectrum disorder, right hemisphere lesions, frontotemporal dementia, and schizophrenia. The differential diagnostic value is significant: social cognition deficits in ASD look qualitatively different from those in ADHD, which look different again from social withdrawal driven by anxiety or depression."
+  },
+  academic: {
+    title: "Academic Achievement",
+    color: "#e8b44a",
+    text: "Academic achievement testing quantifies a patient's current skill level in reading, writing, and mathematics relative to same-age peers. This domain is critical for identifying specific learning disabilities, understanding the functional impact of cognitive deficits, and supporting accommodation requests for standardized exams like the MCAT, LSAT, or board certifications. The discrepancy between cognitive ability and academic achievement remains a cornerstone of learning disability diagnosis and educational planning."
+  }
+};
+
+let activeDomain = null;
+
+function selectDomain(domain) {
+  const domains = document.querySelectorAll('.domain');
+  const callout = document.getElementById('callout');
+  const calloutTitleText = document.getElementById('callout-title-text');
+  const calloutText = document.getElementById('callout-text');
+  const calloutDot = document.getElementById('callout-dot');
+  const instruction = document.getElementById('instruction');
+  const lines = document.querySelectorAll('.connections line');
+
+  if (activeDomain === domain) {
+    activeDomain = null;
+    domains.forEach(d => { d.classList.remove('active', 'dimmed'); });
+    callout.classList.remove('visible');
+    instruction.classList.remove('hidden');
+    lines.forEach(l => l.classList.remove('active'));
+    return;
+  }
+
+  activeDomain = domain;
+  instruction.classList.add('hidden');
+
+  domains.forEach(d => {
+    if (d.dataset.domain === domain) {
+      d.classList.add('active');
+      d.classList.remove('dimmed');
+    } else {
+      d.classList.remove('active');
+      d.classList.add('dimmed');
+    }
+  });
+
+  lines.forEach(l => {
+    const from = l.dataset.from;
+    const to = l.dataset.to;
+    if (from === domain || to === domain) {
+      l.classList.add('active');
+    } else {
+      l.classList.remove('active');
+    }
+  });
+
+  const data = domainData[domain];
+  calloutDot.style.background = data.color;
+  calloutTitleText.style.color = data.color;
+  calloutTitleText.textContent = data.title;
+  calloutText.textContent = data.text;
+  callout.classList.add('visible');
+}
+</script>
+</body>
+</html>
