@@ -270,22 +270,27 @@ challenging ...
 ### Embedded vs. Standalone Validity Tests
 - Embedded: built into the neuropsychological test (e.g., WAIS-4 Digit Span)
 - Standalone: separate test designed to assess effort/validity (e.g., DCT)
----
+
+
+# Measurement and Objectivity
 
 ## How do we measure these domains?
 
 ![](img/stroop.svg)
-
-## Processing speed and \$\$\$
-
-![](/img/coding_x_income.png)
-
 
 ## Distribution of Test Scores: _Population-level Interpretation_
 
 ```{r, gauss-plot1, fig.cap = 'Performance classification of neuropsychological test scores in the general population.', fig.retina = 3, fig.asp = 0.5, out.width = '50%'}
 knitr::include_graphics("img/plot_narrow.png", auto_pdf = TRUE)
 ```
+
+
+## Processing speed and **$$$**
+
+![](/img/coding_x_income.png)
+
+
+
 
 # Case Report - Drilldown Plots
 
