@@ -5,35 +5,121 @@ author: "**Joey W. Trampush, Ph.D.**"
 institute: |
   Department of Psychiatry and the Behavioral Sciences  \
   USC Keck School of Medicine
-date: last-modified
+date: today
 date-format: long
+style: professional  # Options: 'professional' (default) or 'academic'
 format:
-  mcanouil-revealjs:
+  # mcanouil-html:
+  #   output-file: index
+  #   toc: true
+  #   toc-depth: 3
+  #   footer: <https://brainworkup.github.io/PGY2-Psychiatry-Didactics/>
+  # mcanouil-html+academic:
+  #   style: academic
+  #   output-file: example-academic.html
+  #   embed-resources: true
+  #   toc: true
+  #   toc-depth: 3
+  mcanouil-revealjs+dark:
     brand-mode: dark
+    scrollable: true
+    smaller: true
     embed-resources: true
-  blackboard-revealjs:
-    incremental: false
-    show-notes: false
-    slide-number: true
-    show-slide-number: print
-    menu:
-      side: left
-      width: normal
-    progress: true
-    history: true
-    chalkboard: false
-    multiplex: true
-    transition: slide
-    background-transition: fade
-    controls-layout: bottom-right
+    output-file: index.html
     footer: <https://brainworkup.github.io/PGY2-Psychiatry-Didactics/>
     css: ["css/npsych-fonts.css"]
     width: 1600
     height: 900
     fig-format: svg
     fig-align: center
-    standalone: true
+  mcanouil-revealjs+light:
+    brand-mode: light
+    scrollable: true
+    smaller: true
     embed-resources: true
+    output-file: example-revealjs-light.html
+    footer: <https://brainworkup.github.io/PGY2-Psychiatry-Didactics/>
+  # mcanouil-typst+dark+pro:
+  #   brand-mode: dark
+  #   output-file: example-dark-professional.pdf
+  #   watermark-text: "DEMO"
+  # mcanouil-typst+light+pro:
+  #   brand-mode: light
+  #   output-file: example-light-professional.pdf
+  #   watermark-text: "DEMO"
+  # mcanouil-typst+dark+aca:
+  #   style: academic
+  #   brand-mode: dark
+  #   output-file: example-dark-academic.pdf
+  #   watermark-text: "DEMO"
+  # mcanouil-typst+light+aca:
+  #   style: academic
+  #   brand-mode: light
+  #   output-file: example-light-academic.pdf
+  #   watermark-text: "DEMO"
+format-links:
+  - mcanouil-html
+  - format: mcanouil-html+academic
+    text: "HTML (Academic Style)"
+    target: _blank
+    rel: noopener noreferrer
+  - format: mcanouil-revealjs+dark
+    text: "Reveal.js (Dark Mode)"
+    target: _blank
+    rel: noopener noreferrer
+  - format: mcanouil-revealjs+light
+    text: "Reveal.js (Light Mode)"
+    target: _blank
+    rel: noopener noreferrer
+  - format: mcanouil-typst+dark+pro
+    text: "PDF (Dark Professional)"
+    target: _blank
+    rel: noopener noreferrer
+  - format: mcanouil-typst+light+pro
+    text: "PDF (Light Professional)"
+    target: _blank
+    rel: noopener noreferrer
+  - format: mcanouil-typst+dark+aca
+    text: "PDF (Dark Academic)"
+    target: _blank
+    rel: noopener noreferrer
+  - format: mcanouil-typst+light+aca
+    text: "PDF (Light Academic)"
+    target: _blank
+    rel: noopener noreferrer
+other-links:
+  - text: "HTML (Academic Style)"
+    href: example-academic.html
+    target: _blank
+    rel: noopener noreferrer
+# engine: markdown
+# format:
+#   mcanouil-revealjs:
+#     brand-mode: dark
+#     embed-resources: true
+  # blackboard-revealjs:
+  #   incremental: false
+  #   show-notes: false
+  #   slide-number: true
+  #   show-slide-number: print
+  #   menu:
+  #     side: left
+  #     width: normal
+  #   progress: true
+  #   history: true
+  #   chalkboard: false
+  #   multiplex: true
+  #   transition: slide
+  #   background-transition: fade
+  #   controls-layout: bottom-right
+  #   footer: <https://brainworkup.github.io/PGY2-Psychiatry-Didactics/>
+  #   css: ["css/npsych-fonts.css"]
+  #   width: 1600
+  #   height: 900
+  #   fig-format: svg
+  #   fig-align: center
+  #   standalone: true
+  #   embed-resources: true
 ---
 
 ```{r setup, include=FALSE}
@@ -50,13 +136,13 @@ library(revealjs)
 library(svglite)
 library(tibble)
 library(vroom)
-library(readr)
 library(widgetframe)
 library(xaringan)
 library(xaringanExtra)
 library(xaringanthemer)
 library(tidyverse)
 library(bwu)
+library(neuro2)
 ## knitr options
 options(htmltools.dir.version = FALSE)
 knitr::opts_chunk$set(
@@ -121,7 +207,7 @@ psychiatric diagnosis and treatment planning
 
 ## Reason for Referral
 
-**_From you to me_**
+**_From YOU to me/us_**
 
 - Psychodiagnostic clarification ( e.g., poor response to pharmacotherapy)
 
@@ -132,10 +218,22 @@ psychiatric diagnosis and treatment planning
 - Role of neuropsychological assessment in psychiatric differential diagnosis is
 challenging ...
 
-# Standard Neuropsych Batteries
+# Standard Neuropsychological Evaluation
 
-## Neurocognitive Examination
+## Domains Assessed
 
+![](img/domains.png)
+
+
+### Neurocognitive Exam
+
+- General cognitive ability (e.g., "IQ")
+- Verbal/language abilities
+- Visual Perception/Construction
+- Memory
+- Attention/Executive
+
+### Commonly Used Tests
 - Wechsler Adult Intelligence Scale, 4th ed (WAIS-4)
 - Wechsler Individual Achievement Test, 4th ed (WIAT-4)
 - Neuropsychological Assessment Battery, Screener (NAB)
@@ -143,7 +241,8 @@ challenging ...
 - California Verbal Learning Test, 3rd ed (CVLT-3)
 - Rey-Osterrieth Complex Figure Test (ROCFT)
 - Trail Making Test (TMT)
-
+- RBANS
+- NEPSY-II
 
 ## Behavioral/Emotional/Personality
 
@@ -157,16 +256,21 @@ challenging ...
 - Personality Assessment Inventory (PAI)
 - Minnesota Multiphasic Personality Inventory (MMPI)
 
-### Effort/Validity Testing
+## Effort/Validity Testing
 
+### Symptom Validity Tests (SVTs)
+- Structured Inventory of Malingered Symptomatology (SIMS)
+- Miller Forensic Assessment of Symptoms Test (M-FAST)
+- Test of Memory Malingering (TOMM)
+
+### Performance Validity Tests (PVTs)
 - ACS Word Choice Test
 - Dot Counting Test (DCT)
 
+### Embedded vs. Standalone Validity Tests
+- Embedded: built into the neuropsychological test (e.g., WAIS-4 Digit Span)
+- Standalone: separate test designed to assess effort/validity (e.g., DCT)
 ---
-
-## Domains Assessed
-
-![](img/domains.png)
 
 ## How do we measure these domains?
 
@@ -176,176 +280,20 @@ challenging ...
 
 ![](/img/coding_x_income.png)
 
-## General cognitive ability "*g*"
 
-:::: {.columns}
-
-::: {.column width="40%"}
-Performance across individual tests correlates strongly among each other
-:::
-
-::: {.column width="60%"}
-![](/img/g.png)
-:::
-
-::::
-
-## Attention/Executive {auto-animate=true}
-<!-- ## {auto-animate=true} -->
-
-Attention
-
-Working Memory
-
-Processing Speed
-
-Executive Functioning
-
-## Attention/Executive {auto-animate=true}
-
-Attention
-
-  - attention span
-  - attentional fluency
-
-## Attention/Executive {auto-animate=true}
-<!-- ## {auto-animate=true} -->
-
-Working Memory
-
-  - verbal working memory
-  - nonverbal working memory
-
-Attention
-
-## Attention/Executive {auto-animate=true}
-<!-- ## {auto-animate=true} -->
-
-Processing Speed
-
-- psychomotor speed
-- cognitive efficiency
-
-Working Memory
-
-Attention
-
-## Attention/Executive {auto-animate=true}
-<!-- ## {auto-animate=true} -->
-
-Executive Functioning
-
-- planning
-- judgment
-
-Processing Speed
-
-Working Memory
-
-Attention
-
-## Learning Disorders (LD)
-
-![](/img/ld.png)
-
-## Distribution of Scores: _Population-level Interpretation_
+## Distribution of Test Scores: _Population-level Interpretation_
 
 ```{r, gauss-plot1, fig.cap = 'Performance classification of neuropsychological test scores in the general population.', fig.retina = 3, fig.asp = 0.5, out.width = '50%'}
 knitr::include_graphics("img/plot_narrow.png", auto_pdf = TRUE)
 ```
 
-# Case Report #1
-
-- Patient: 20-something yr-old male
-- Referral: ADHD/LD evaluation
-
-```{r, read-data}
-library(readr)
-neuropsych <- read_csv("data/neuropsych.csv")
-neurocog <-
-  readr::read_csv("data/neurocog.csv", show_col_types = TRUE) |>
-  dplyr::filter(scale != "Orientation") |>
-  dplyr::filter(narrow != "Response Monitoring") |>
-  dplyr::filter(narrow != "Recognition Memory")
-neurobehav <-
-  readr::read_csv("data/neurobehav.csv", show_col_types = TRUE)
-validity <-
-  readr::read_csv("data/validity.csv", show_col_types = TRUE)
-```
-
-## Neurocognitive Examination {background-color="black"}
-
-```{r merge-themes, echo=FALSE}
-# if using single theme
-theme <- highcharter::hc_theme_sandsignika()
-# if merging themes
-theme_merge <-
-  highcharter::hc_theme_merge(
-    highcharter::hc_theme_monokai(),
-    highcharter::hc_theme_darkunica()
-  )
-```
-
-```{r drilldown-plot1, fig.width = 12, fig.height = 8, fig.retina = 3, out.width = '100%'}
-
-patient <- "Biggie"
-data <- neurocog
-neuro_domain <- "Neuropsychological Test Scores"
-theme <- theme_merge
-plot1 <-
-  bwu::drilldown(
-    data = data,
-    patient = patient,
-    neuro_domain = neuro_domain,
-    theme = theme
-  )
-plot1
-```
-
-
-## Behavioral/Emotional/Personality {background-color="black"}
-
-::: {.notes}
-Summary of self-report and observer-report scales from the PAI, CAARS, and CEFI
-:::
-
-```{r drilldown-plot2, fig.width = 12, fig.height = 8, fig.retina = 3, out.width = '100%'}
-
-data <- neurobehav
-neuro_domain <- "Behavioral Rating Scales"
-theme <- theme_merge
-plot2 <-
-  bwu::drilldown(
-    data = data,
-    patient = patient,
-    neuro_domain = neuro_domain,
-    theme = theme
-  )
-plot2
-```
-
-## Effort/Validity Testing {background-color="black"}
-
-```{r drilldown-plot3, fig.width = 12, fig.height = 8, fig.retina = 3, out.width = '100%'}
-
-data <- validity
-neuro_domain <- "Effort/Validity Test Scores"
-theme <- theme_merge
-plot3 <-
-  bwu::drilldown(
-    data = data,
-    patient = patient,
-    neuro_domain = neuro_domain,
-    theme = theme
-  )
-plot3
-```
-
-# Case Report #2
+# Case Report - Drilldown Plots
 
 - Patient: 20-something yr-old female
 
-- Referral: ADHD and anxiety for accommodations
+- Referral: ADHD and anxiety for MCAT accommodations
+
+- Relevant History: Multiple mild trauamatic brain injuries (TBIs)/concussions
 
 ```{r, read-data2}
 library(readr)
@@ -394,7 +342,7 @@ plot1b
 ## Behavioral/Emotional/Personality {background-color="black"}
 
 ::: {.notes}
-Summary of self-report and observer-report scales from the PAI, CAARS, and CEFI
+Summary of self- and observer-reports from the PAI, CAARS, and CEFI
 :::
 
 ```{r drilldown-plot2b, fig.width = 12, fig.height = 8, fig.retina = 3, out.width = '100%'}
@@ -415,7 +363,6 @@ plot2b
 ## Effort/Validity Testing {background-color="black"}
 
 ```{r drilldown-plot3b, fig.width = 12, fig.height = 8, fig.retina = 3, out.width = '100%'}
-
 data <- validity
 neuro_domain <- "Effort/Validity Test Scores"
 theme <- theme_merge
@@ -432,4 +379,4 @@ plot3b
 # Thank you!
 
 - URL to slide deck and resources:
-<https://brainworkup.github.io/PY2-Psychiatry-Residents/>
+**<https://brainworkup.github.io/PY2-Psychiatry-Residents/>**

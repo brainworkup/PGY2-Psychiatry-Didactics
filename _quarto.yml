@@ -8,6 +8,7 @@ website:
     left:
       - href: index.qmd
         text: Neuropsychological Testing for Psychiatrists
+  repo-url: https://github.com/brainworkup/PGY2-Psychiatry-Didactics
 
 execute:
   echo: false

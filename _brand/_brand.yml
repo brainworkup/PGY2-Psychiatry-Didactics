@@ -3,23 +3,23 @@ meta:
   link:
     home: https://brainworkup.org
     github: https://github.com/brainworkup
-logo:
-  images:
-    light:
-      path: logos/logo-dark-path.svg
-      alt: "Joey W. Trampush logo"
-    dark:
-      path: logos/logo-light-path.svg
-      alt: "Joey W. Trampush logo"
-  small:
-    light: light
-    dark: dark
-  medium:
-    light: light
-    dark: dark
-  large:
-    light: light
-    dark: dark
+# logo:
+#   images:
+#     light:
+#       path: logos/logo-dark-path.svg
+#       alt: "Joey W. Trampush logo"
+#     dark:
+#       path: logos/logo-light-path.svg
+#       alt: "Joey W. Trampush logo"
+#   small:
+#     light: light
+#     dark: dark
+#   medium:
+#     light: light
+#     dark: dark
+#   large:
+#     light: light
+#     dark: dark
 color:
   background:
     dark: "#333333"
@@ -53,17 +53,17 @@ defaults:
       tooltip-color: $background
       tooltip-bg: $foreground
       btn-close-color: $foreground
-      # # Navbar (complements metadata "background: dark")
-      # navbar-bg: $dark
-      # navbar-fg: $light
-      # navbar-hl: $light
-      # # Footer
-      # footer-bg: $dark
-      # footer-fg: $light
-      # footer-hl: $light
-      # # Sidebar (complements metadata "background: dark")
-      # sidebar-bg: $dark
-      # sidebar-fg: $light
-      # sidebar-hl: $light
+      # Navbar (complements metadata "background: dark")
+      navbar-bg: $dark
+      navbar-fg: $light
+      navbar-hl: $light
+      # Footer
+      footer-bg: $dark
+      footer-fg: $light
+      footer-hl: $light
+      # Sidebar (complements metadata "background: dark")
+      sidebar-bg: $dark
+      sidebar-fg: $light
+      sidebar-hl: $light
     rules: |
       // CSS Rules
