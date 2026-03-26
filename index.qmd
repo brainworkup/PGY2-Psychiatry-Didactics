@@ -291,33 +291,23 @@ knitr::opts_chunk$set(dev.args = list(bg = "transparent"))
 ## Effort/Validity Testing
 Crucial for interpreting test results and ensuring accurate clinical conclusions
 
-::: {.incremental}
+
 ### Symptom Validity Tests (SVTs)
 - Positive Impression ("everything is perfect")
 - Negative Impression ("everything is wrong")
 - Atypical/Infrequent Responses
 - Inconsistent Responses
-:::
 
-::: {.incremental}
 ### Performance Validity Tests (PVTs)
 - ACS Word Choice Test
 - Dot Counting Test (DCT)
 - Test of Memory Malingering (TOMM)
-:::
 
-::: {.incremental}
-### Embedded vs Standalone Validity Tests
-- Embedded: built into the neuropsychological test (e.g., WAIS-4 Digit Span)
-- Standalone: separate test designed to assess effort/validity (e.g., DCT)
-- Both types are important for comprehensive validity assessment
-:::
+# Measurement/Objectivity/Interpretation
 
-## Measurement and Objectivity
+## Stroop Inhibition Task
 
-### How do we measure these domains?
-
-![](img/stroop.svg)
+![](/img/stroop.svg)
 
 
 ## Distribution of Test Scores: _Population-level Interpretation_
@@ -325,9 +315,6 @@ Crucial for interpreting test results and ensuring accurate clinical conclusions
 ```{r, gauss-plot1, fig.cap = 'Performance classification of neuropsychological test scores in the general population.', fig.retina = 3, fig.asp = 0.5, out.width = '50%'}
 knitr::include_graphics("img/plot_narrow.png", auto_pdf = TRUE)
 ```
-
-
-
 
 ## Processing Speed and **$$$**
 
@@ -341,8 +328,6 @@ knitr::include_graphics("img/plot_narrow.png", auto_pdf = TRUE)
 - **Referral:** ADHD and anxiety for MCAT accommodations
 
 - **Relevant History:** Multiple mild trauamatic brain injuries (TBIs)/concussions
-
-# Drilldown Plots
 
 ```{r, read-data2}
 library(readr)
