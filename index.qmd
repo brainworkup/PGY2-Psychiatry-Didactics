@@ -235,6 +235,9 @@ knitr::opts_chunk$set(dev.args = list(bg = "transparent"))
 - Visual Perception/Construction
 - Memory
 - Attention/Executive
+- Motor
+- ADHD/Executive Functioning
+- Emotional/Behavioral/Social/Personality
 - Social Cognition
 - Adaptive Functioning
 - Daily Living Skills
@@ -243,12 +246,13 @@ knitr::opts_chunk$set(dev.args = list(bg = "transparent"))
 - Wechsler Adult Intelligence Scale, 4th ed (WAIS-4)
 - Wechsler Individual Achievement Test, 4th ed (WIAT-4)
 - Neuropsychological Assessment Battery, Screener (NAB)
-- NIH Executive Abilities--Measures and Instruments for Neurobehavioral Evaluation and Research (NIH EXAMINER): Unstructured Task, Verbal Fluency, Behavioral Rating Scale
+- NIH Executive Abilities--Measures and Instruments for Neurobehavioral Evaluation and Research (NIH EXAMINER)
 - California Verbal Learning Test, 3rd ed (CVLT-3)
 - Rey-Osterrieth Complex Figure Test (ROCFT)
 - Trail Making Test (TMT)
 - RBANS
 - NEPSY-II
+- Delis-Kaplan Executive Function System (D-KEFS)
 
 ## Behavioral/Emotional/Personality
 
@@ -300,11 +304,11 @@ knitr::include_graphics("img/plot_narrow.png", auto_pdf = TRUE)
 
 # Case Report - Drilldown Plots
 
-- Patient: 20-something yr-old female
+- **Patient:** 20-something yr-old female
 
-- Referral: ADHD and anxiety for MCAT accommodations
+- **Referral:** ADHD and anxiety for MCAT accommodations
 
-- Relevant History: Multiple mild trauamatic brain injuries (TBIs)/concussions
+- **Relevant History:** Multiple mild trauamatic brain injuries (TBIs)/concussions
 
 ```{r, read-data2}
 library(readr)
@@ -335,7 +339,7 @@ theme_merge <-
 
 ```{r drilldown-plot1b, fig.width = 12, fig.height = 8, fig.retina = 3, out.width = '100%'}
 
-patient <- "Tupac"
+patient <- "Biggie Smalls"
 data <- neurocog
 neuro_domain <- "Neuropsychological Test Scores"
 theme <- theme_merge
