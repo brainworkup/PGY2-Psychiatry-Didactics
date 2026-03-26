@@ -1,0 +1,45 @@
+{
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#ab92b7",
+    "activityBar.background": "#ab92b7",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#73664c",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "panel.border": "#ab92b7",
+    "sash.hoverBorder": "#ab92b7",
+    "sideBar.border": "#ab92b7",
+    "tab.activeBorder": "#ab92b7",
+    "commandCenter.border": "#15202b99",
+    "editorError.foreground": "#000000ff",
+    "editorGroup.border": "#ab92b7",
+    "editorInfo.foreground": "#000000ff",
+    "editorWarning.foreground": "#000000ff",
+    "statusBar.background": "#9473a3",
+    "statusBar.border": "#9473a3",
+    "statusBar.foreground": "#15202b",
+    "statusBarItem.hoverBackground": "#7a5a89",
+    "statusBarItem.remoteBackground": "#9473a3",
+    "statusBarItem.remoteForeground": "#15202b",
+    "titleBar.activeBackground": "#9473a3",
+    "titleBar.activeForeground": "#15202b",
+    "titleBar.border": "#9473a3",
+    "titleBar.inactiveBackground": "#9473a399",
+    "titleBar.inactiveForeground": "#15202b99"
+  },
+  "peacock.color": "#9473a3",
+  "spellright.language": ["en"],
+  "spellright.documentTypes": [
+    "quarto",
+    "markdown",
+    "latex",
+    "plaintext",
+    "rmd",
+    "yaml"
+  ],
+  "spellright.parserByClass": {
+    "quarto": {
+      "parser": "markdown"
+    }
+  }
+}

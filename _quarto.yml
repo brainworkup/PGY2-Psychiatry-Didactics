@@ -1,0 +1,17 @@
+project:
+  type: mcanouil
+  output-dir: docs
+
+website:
+  title: 'Neuropsychological Testing for Psychiatrists'
+  navbar:
+    left:
+      - href: index.qmd
+        text: Neuropsychological Testing for Psychiatrists
+
+execute:
+  echo: false
+  warning: true
+  message: false
+  cache: true
+  freeze: auto
