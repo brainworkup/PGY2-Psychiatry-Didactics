@@ -39,24 +39,24 @@ format:
     embed-resources: true
     output-file: example-revealjs-light.html
     footer: <https://brainworkup.github.io/PGY2-Psychiatry-Didactics/>
-  # mcanouil-typst+dark+pro:
-  #   brand-mode: dark
-  #   output-file: example-dark-professional.pdf
-  #   watermark-text: "DEMO"
-  # mcanouil-typst+light+pro:
-  #   brand-mode: light
-  #   output-file: example-light-professional.pdf
-  #   watermark-text: "DEMO"
-  # mcanouil-typst+dark+aca:
-  #   style: academic
-  #   brand-mode: dark
-  #   output-file: example-dark-academic.pdf
-  #   watermark-text: "DEMO"
-  # mcanouil-typst+light+aca:
-  #   style: academic
-  #   brand-mode: light
-  #   output-file: example-light-academic.pdf
-  #   watermark-text: "DEMO"
+  mcanouil-typst+dark+pro:
+    brand-mode: dark
+    output-file: example-dark-professional.pdf
+    watermark-text: "DEMO"
+  mcanouil-typst+light+pro:
+    brand-mode: light
+    output-file: example-light-professional.pdf
+    watermark-text: "DEMO"
+  mcanouil-typst+dark+aca:
+    style: academic
+    brand-mode: dark
+    output-file: example-dark-academic.pdf
+    watermark-text: "DEMO"
+  mcanouil-typst+light+aca:
+    style: academic
+    brand-mode: light
+    output-file: example-light-academic.pdf
+    watermark-text: "DEMO"
 format-links:
   - mcanouil-html
   - format: mcanouil-html+academic
@@ -87,12 +87,12 @@ format-links:
     text: "PDF (Light Academic)"
     target: _blank
     rel: noopener noreferrer
-other-links:
-  - text: "HTML (Academic Style)"
-    href: example-academic.html
-    target: _blank
-    rel: noopener noreferrer
-# engine: markdown
+# other-links:
+#   - text: "HTML (Academic Style)"
+#     href: example-academic.html
+#     target: _blank
+#     rel: noopener noreferrer
+engine: knitr
 # format:
 #   mcanouil-revealjs:
 #     brand-mode: dark
@@ -197,31 +197,23 @@ theme_chalk <- function() {
 knitr::opts_chunk$set(dev.args = list(bg = "transparent"))
 ```
 
-## Learning Objectives
-
-- Understand the role of neuropsychological assessment in psychiatric practice
-- Recognize the domains of cognitive functioning assessed in a
-neuropsychological evaluation
-- Interpret the results of a neuropsychological evaluation in the context of
-psychiatric diagnosis and treatment planning
-
-## Reason for Referral
+# Reason for Referral
 
 **_From YOU to ME_**
 
-### 1. Diagnostic Clarification in Complex Cases
+## 1. Diagnostic Clarification in Complex Cases
 
 - Distinguish primary psychiatric disorders from neurocognitive conditions (e.g., ADHD vs. anxiety, depression vs. early neurocognitive disorder)
 - Clarify etiology when presentation is atypical or symptoms overlap across diagnostic categories
 - Inform treatment selection when standard pharmacotherapy has failed
 
-### 2. Objective Characterization of Cognitive Functioning
+## 2. Objective Characterization of Cognitive Functioning
 
 - Identify specific cognitive strengths and weaknesses affecting daily functioning
 - Quantify deficits in attention, memory, executive function, or processing speed that may maintain or exacerbate psychopathology
 - Establish baseline functioning for tracking treatment response or disease progression
 
-### 3. Treatment Planning and Accommodation Recommendations
+## 3. Treatment Planning and Accommodation Recommendations
 
 - Generate data-driven recommendations for academic/workplace accommodations (e.g., MCAT, LSAT, job performance)
 - Guide cognitive rehabilitation, compensatory strategy development, and psychoeducation
@@ -234,13 +226,7 @@ psychiatric diagnosis and treatment planning
 <iframe src="img/neuropsych-domains.html" width="1500" height="850" style="border:none; display:block; margin:0 auto;" sandbox="allow-scripts"></iframe>
 ```
 
-
-<!-- ## Domains Assessed
- -->
-<!-- ![](img/domains.png) -->
-
-
-### Neurocognitive Exam
+## Neurocognitive Exam
 
 - General Cognitive Ability (e.g., "IQ")
 - Academic Skills

@@ -3,23 +3,23 @@ meta:
   link:
     home: https://brainworkup.org
     github: https://github.com/brainworkup
-# logo:
-#   images:
-#     light:
-#       path: logos/logo-dark-path.svg
-#       alt: "Joey W. Trampush logo"
-#     dark:
-#       path: logos/logo-light-path.svg
-#       alt: "Joey W. Trampush logo"
-#   small:
-#     light: light
-#     dark: dark
-#   medium:
-#     light: light
-#     dark: dark
-#   large:
-#     light: light
-#     dark: dark
+logo:
+  images:
+    light:
+      path: logos/logo.png
+      alt: "Joey W. Trampush logo"
+    dark:
+      path: logos/logo_black.jpg
+      alt: "Joey W. Trampush logo"
+  small:
+    light: light
+    dark: dark
+  medium:
+    light: light
+    dark: dark
+  large:
+    light: light
+    dark: dark
 color:
   background:
     dark: "#333333"
