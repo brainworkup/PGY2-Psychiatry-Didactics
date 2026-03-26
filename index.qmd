@@ -9,17 +9,17 @@ date: today
 date-format: long
 style: professional  # Options: 'professional' (default) or 'academic'
 format:
-  # mcanouil-html:
-  #   output-file: index
-  #   toc: true
-  #   toc-depth: 3
-  #   footer: <https://brainworkup.github.io/PGY2-Psychiatry-Didactics/>
-  # mcanouil-html+academic:
-  #   style: academic
-  #   output-file: example-academic.html
-  #   embed-resources: true
-  #   toc: true
-  #   toc-depth: 3
+  mcanouil-html:
+    output-file: index
+    toc: true
+    toc-depth: 3
+    footer: <https://brainworkup.github.io/PGY2-Psychiatry-Didactics/>
+  mcanouil-html+academic:
+    style: academic
+    output-file: example-academic.html
+    embed-resources: true
+    toc: true
+    toc-depth: 3
   mcanouil-revealjs+dark:
     brand-mode: dark
     scrollable: true
@@ -202,11 +202,11 @@ knitr::opts_chunk$set(dev.args = list(bg = "transparent"))
 **_From YOU to ME_**
 
 ## 1. Diagnostic Clarification in Complex Cases
-::: {.incremental}
+<!-- ::: {.incremental} -->
 - Distinguish primary psychiatric disorders from neurocognitive conditions (e.g., ADHD vs. anxiety, depression vs. early neurocognitive disorder)
 - Clarify etiology when presentation is atypical or symptoms overlap across diagnostic categories
 - Inform treatment selection when standard pharmacotherapy has failed
-:::
+<!-- ::: -->
 
 ## 2. Objective Characterization of Cognitive Functioning
 
