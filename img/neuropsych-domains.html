@@ -359,6 +359,7 @@ function selectDomain(domain) {
     callout.classList.remove('visible');
     instruction.classList.remove('hidden');
     lines.forEach(l => l.classList.remove('active'));
+    returnFocusToParent();
     return;
   }
 
@@ -391,7 +392,22 @@ function selectDomain(domain) {
   calloutTitleText.textContent = data.title;
   calloutText.textContent = data.text;
   callout.classList.add('visible');
+
+  // Return focus to parent so revealjs arrow keys keep working
+  returnFocusToParent();
 }
+
+function returnFocusToParent() {
+  if (document.activeElement) document.activeElement.blur();
+  try { window.parent.focus(); } catch(e) {}
+}
+
+// Forward arrow/space/enter keys to parent so revealjs navigation always works
+document.addEventListener('keydown', function(e) {
+  if (['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Space','Enter','Escape'].includes(e.code)) {
+    try { window.parent.focus(); } catch(ex) {}
+  }
+});
 </script>
 </body>
 </html>

@@ -1,0 +1,13 @@
+title: Invoice
+author: Mickaël Canouil
+version: 1.4.0
+quarto-required: '>=1.7.30'
+source: mcanouil/quarto-invoice@1.4.0
+source-type: registry
+contributes:
+  formats:
+    typst:
+      template: template.typ
+      template-partials:
+        - typst-template.typ
+        - typst-show.typ
